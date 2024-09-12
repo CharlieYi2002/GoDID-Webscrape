@@ -26,14 +26,14 @@ def get_info(driver):
             if link_elements:
                 link = link_elements[0].get_attribute("href")
             else:
-                continue  # Skip this item if no link is found
+                continue  
 
             # Extract name
             name_element = item.find_element(By.XPATH, ".//p[contains(@class, 'chakra-text css-1wydx3c')]")
             if name_element:
                 name = name_element.text.strip()
             else:
-                continue  # Skip this item if no name is found
+                continue  
 
             if link and name:
                 profile_url = "No profile URL"
