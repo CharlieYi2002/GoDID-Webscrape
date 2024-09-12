@@ -7,13 +7,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-# Set up Chrome options
 chrome_options = Options()
-chrome_options.add_argument("--headless")  # Optional: Run in headless mode
+chrome_options.add_argument("--headless")  
 chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--no-sandbox")
 
-# Initialize the WebDriver
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
 def get_info(driver):
@@ -91,7 +89,6 @@ try:
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@data-item-index='0']")))
     print("Page loaded.")
 
-    # Initialize variables
     all_links_and_names = []
     target_count = 1500
     output_file = "output.txt"
@@ -116,5 +113,4 @@ try:
         print(f"{count}. Link: {link}, Name: {name}, Profile URL: {profile_url}")
 
 finally:
-    # Close the browser
     driver.quit()
